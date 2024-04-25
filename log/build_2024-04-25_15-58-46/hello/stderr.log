@@ -1,5 +1,0 @@
-  File "/home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello/listener.py", line 3
-    int main(int argc, char** argv) { rclcpp::init(argc, argv); auto node = rclcpp::Node::make_shared("serial_node");
-        ^^^^
-SyntaxError: invalid syntax
-

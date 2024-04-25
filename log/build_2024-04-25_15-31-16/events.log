@@ -1,4 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000237] (-) JobUnselected: {'identifier': 'hello'}
-[0.000271] (-) JobUnselected: {'identifier': 'hello_interfaces'}
-[0.000495] (-) EventReactorShutdown: {}
