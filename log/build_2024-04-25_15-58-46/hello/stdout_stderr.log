@@ -1,0 +1,28 @@
+running egg_info
+writing ../../build/hello/hello.egg-info/PKG-INFO
+writing dependency_links to ../../build/hello/hello.egg-info/dependency_links.txt
+writing entry points to ../../build/hello/hello.egg-info/entry_points.txt
+writing requirements to ../../build/hello/hello.egg-info/requires.txt
+writing top-level names to ../../build/hello/hello.egg-info/top_level.txt
+reading manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+writing manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+running build
+running build_py
+copying hello/listener.py -> /home/hisa/colcon_ws_controller/build/hello/build/lib/hello
+running install
+running install_lib
+copying /home/hisa/colcon_ws_controller/build/hello/build/lib/hello/listener.py -> /home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello
+byte-compiling /home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello/listener.py to listener.cpython-310.pyc
+  File "/home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello/listener.py", line 3
+    int main(int argc, char** argv) { rclcpp::init(argc, argv); auto node = rclcpp::Node::make_shared("serial_node");
+        ^^^^
+SyntaxError: invalid syntax
+
+running install_data
+running install_egg_info
+removing '/home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/hello/hello.egg-info to /home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello-0.0.0-py3.10.egg-info
+running install_scripts
+Installing listener script to /home/hisa/colcon_ws_controller/install/hello/lib/hello
+Installing talker script to /home/hisa/colcon_ws_controller/install/hello/lib/hello
+writing list of installed files to '/home/hisa/colcon_ws_controller/build/hello/install.log'

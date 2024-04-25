@@ -1,0 +1,26 @@
+[0.377s] Invoking command in '/home/hisa/colcon_ws_controller/src/hello': PYTHONPATH=/home/hisa/colcon_ws_controller/build/hello/prefix_override:/home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/hello build --build-base /home/hisa/colcon_ws_controller/build/hello/build install --record /home/hisa/colcon_ws_controller/build/hello/install.log --single-version-externally-managed install_data
+[0.523s] running egg_info
+[0.523s] writing ../../build/hello/hello.egg-info/PKG-INFO
+[0.524s] writing dependency_links to ../../build/hello/hello.egg-info/dependency_links.txt
+[0.524s] writing entry points to ../../build/hello/hello.egg-info/entry_points.txt
+[0.524s] writing requirements to ../../build/hello/hello.egg-info/requires.txt
+[0.524s] writing top-level names to ../../build/hello/hello.egg-info/top_level.txt
+[0.525s] reading manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+[0.526s] writing manifest file '../../build/hello/hello.egg-info/SOURCES.txt'
+[0.526s] running build
+[0.526s] running build_py
+[0.526s] copying hello/listener.py -> /home/hisa/colcon_ws_controller/build/hello/build/lib/hello
+[0.526s] running install
+[0.526s] running install_lib
+[0.527s] copying /home/hisa/colcon_ws_controller/build/hello/build/lib/hello/listener.py -> /home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello
+[0.527s] byte-compiling /home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello/listener.py to listener.cpython-310.pyc
+[0.527s] Sorry: IndentationError: expected an indented block after function definition on line 27 (listener.py, line 28)
+[0.527s] running install_data
+[0.528s] running install_egg_info
+[0.528s] removing '/home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello-0.0.0-py3.10.egg-info' (and everything under it)
+[0.529s] Copying ../../build/hello/hello.egg-info to /home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages/hello-0.0.0-py3.10.egg-info
+[0.529s] running install_scripts
+[0.544s] Installing listener script to /home/hisa/colcon_ws_controller/install/hello/lib/hello
+[0.544s] Installing talker script to /home/hisa/colcon_ws_controller/install/hello/lib/hello
+[0.544s] writing list of installed files to '/home/hisa/colcon_ws_controller/build/hello/install.log'
+[0.567s] Invoked command in '/home/hisa/colcon_ws_controller/src/hello' returned '0': PYTHONPATH=/home/hisa/colcon_ws_controller/build/hello/prefix_override:/home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/hello build --build-base /home/hisa/colcon_ws_controller/build/hello/build install --record /home/hisa/colcon_ws_controller/build/hello/install.log --single-version-externally-managed install_data

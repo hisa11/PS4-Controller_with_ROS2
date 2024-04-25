@@ -1,0 +1,4 @@
+[console_scripts]
+listener = hello.listener:main
+talker = hello.talker:main
+
