@@ -1,6 +1,0 @@
-{
-  "package_name": "hello_interfaces",
-  "non_idl_tuples": [
-    "/home/hisa/colcon_ws_controller/src/hello_interfaces:msg/MyString.msg"
-  ]
-}
