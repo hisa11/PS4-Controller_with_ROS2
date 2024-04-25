@@ -34,6 +34,17 @@ class MyController(Controller, Node):
         msg.data = f"R3_x: {value}"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
+    def on_R3_up(self, value):
+        msg = MyString()
+        msg.data = f"R3_y: {value}"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
+
+    def on_R3_down(self, value):
+        msg = MyString()
+        msg.data = f"R3_y: {value}"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
 
 def main(args=None):
     rclpy.init(args=args)
