@@ -7,7 +7,7 @@ import time
 class MySubscriber(Node):
     def __init__(self):
         super().__init__('serial_node')
-        self.serial_port = serial.Serial('/dev/ttyACM0', 250000, timeout=10)
+        self.serial_port = serial.Serial('/dev/ttyACM0', 250000, timeout=70)
 
         self.subscription = self.create_subscription(
             MyString, "chatter", self.listener_callback, 10
@@ -24,9 +24,9 @@ class MySubscriber(Node):
     def listener_callback(self, msg):
         self.get_logger().info(f"Subscribe {msg.data}")
         self.msg = msg
-        if time.time() - self.last_send_time >= 0.05:
-            self.send_serial_data()  # メッセージを受け取った直後にデータを送信します
-            self.last_send_time = time.time()
+        # if time.time() - self.last_send_time >= 0.0016:
+        self.send_serial_data()  # メッセージを受け取った直後にデータを送信します
+        self.last_send_time = time.time()
 
     def send_serial_data(self):
         if self.msg is not None:
