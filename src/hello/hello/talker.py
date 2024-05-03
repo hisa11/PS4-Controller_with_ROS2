@@ -20,31 +20,45 @@ class MyController(Controller, Node):
         msg.data = "cross"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
+    def on_x_release(self):
+        msg = MyString()
+        msg.data = "batuu"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
 
     # ... 他のイベントメソッドも同様に含めて修正 ...
 
     def on_R3_left(self, value):
+        if -3000 < value < 3000:
+            value = 0
         msg = MyString()
         msg.data = f"R3_x: {value}"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: " + msg.data)
+        self.get_logger().info("Published: R3_x: " + str(value))
 
     def on_R3_right(self, value):
+        if -3000 < value < 3000:
+            value = 0
         msg = MyString()
         msg.data = f"R3_x: {value}"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: " + msg.data)
+        self.get_logger().info("Published: R3_x: " + str(value))
+
     def on_R3_up(self, value):
+        if -3000 < value < 3000:
+            value = 0
         msg = MyString()
         msg.data = f"R3_y: {value}"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: " + msg.data)
+        self.get_logger().info("Published: R3_y: " + str(value))
 
     def on_R3_down(self, value):
+        if -3000 < value < 3000:
+            value = 0
         msg = MyString()
         msg.data = f"R3_y: {value}"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: " + msg.data)
+        self.get_logger().info("Published: R3_y: " + str(value))
 
 def main(args=None):
     rclpy.init(args=args)

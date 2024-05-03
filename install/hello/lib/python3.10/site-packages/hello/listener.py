@@ -2,11 +2,12 @@ import rclpy
 from hello_interfaces.msg import MyString  # 仮定するメッセージタイプ
 from rclpy.node import Node
 import serial
+import time
 
 class MySubscriber(Node):
     def __init__(self):
         super().__init__('serial_node')
-        self.serial_port = serial.Serial('/dev/ttyACM0', 250000, timeout=1)
+        self.serial_port = serial.Serial('/dev/ttyACM0', 250000, timeout=10)
 
         self.subscription = self.create_subscription(
             MyString, "chatter", self.listener_callback, 10
@@ -18,11 +19,14 @@ class MySubscriber(Node):
             exit(1)
 
         self.msg = None
+        self.last_send_time = time.time()
 
     def listener_callback(self, msg):
         self.get_logger().info(f"Subscribe {msg.data}")
         self.msg = msg
-        self.send_serial_data()  # メッセージを受け取った直後にデータを送信します
+        if time.time() - self.last_send_time >= 0.05:
+            self.send_serial_data()  # メッセージを受け取った直後にデータを送信します
+            self.last_send_time = time.time()
 
     def send_serial_data(self):
         if self.msg is not None:
