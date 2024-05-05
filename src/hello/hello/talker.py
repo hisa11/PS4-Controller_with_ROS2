@@ -60,7 +60,7 @@ class MyController(Controller, Node):
         self.publisher_.publish(msg)
         self.get_logger().info("Published: R3_y: " + str(value))
     
-    # ________________________________________________
+    # ____________________________________________
 
 
     def on_L3_left(self, value):
