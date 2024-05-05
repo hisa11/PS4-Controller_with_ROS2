@@ -10,5 +10,6 @@
         "/home/hisa/colcon_ws_controller/install/hello/lib/python3.10/site-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
-    ]
+    ],
+    "cmake.sourceDirectory": "/home/hisa/colcon_ws_controller/build/hello_interfaces/hello_interfaces__py"
 }
