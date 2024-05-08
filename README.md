@@ -6,8 +6,8 @@ git を入れる
 
 2.`cd ~/PS4-Controller_with_ROS2`
 
-  `source /opt/ros/<ros2_distro>/setup.bash`
+3.`source /opt/ros/<ros2_distro>/setup.bash`
   
-  `cd ~/PS4-Controller_with_ROS2`
+4.`cd ~/PS4-Controller_with_ROS2`
   
-  `colcon build`
+5.`colcon build`
