@@ -1,3 +1,4 @@
+
 import rclpy
 from hello_interfaces.msg import MyString  # 仮定するメッセージタイプ
 from rclpy.node import Node
