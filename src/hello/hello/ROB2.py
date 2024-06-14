@@ -15,94 +15,56 @@ class MyController(Controller, Node):
         self.listen(timeout=5)
 
     # コントローラーのイベントハンドラー
-    def on_left_arrow_press(self):
+    def on_up_arrow_press(self):
         msg = MyString()
-        msg.data = "cross"
+        msg.data = "up"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
-    def on_left_release(self):
+    def on_down_release(self):
         msg = MyString()
-        msg.data = "batuu"
+        msg.data = "un_up"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
     # ... 他のイベントメソッドも同様に含めて修正 ...
-
-    def on_R3_left(self, value):
-        if -3000 < value < 3000:
-            value = 0
+    def on_down_arrow_press(self):
         msg = MyString()
-        msg.data = f"R3_x: {value}"
+        msg.data = "down"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: R3_x: " + str(value))
-
-    def on_R3_right(self, value):
-        if -3000 < value < 3000:
-            value = 0
+        self.get_logger().info("Published: " + msg.data)
+    def on_down_arrow_release(self):
         msg = MyString()
-        msg.data = f"R3_x: {value}"
+        msg.data = "un_down"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: R3_x: " + str(value))
-
-    def on_R3_up(self, value):
-        if -3000 < value < 3000:
-            value = 0
-        msg = MyString()
-        msg.data = f"R3_y: {value}"
-        self.publisher_.publish(msg)
-        self.get_logger().info("Published: R3_y: " + str(value))
-
-    def on_R3_down(self, value):
-        if -3000 < value < 3000:
-            value = 0
-        msg = MyString()
-        msg.data = f"R3_y: {value}"
-        self.publisher_.publish(msg)
-        self.get_logger().info("Published: R3_y: " + str(value))
+        self.get_logger().info("Published: " + msg.data)
     
-    # ____________________________________________
-
-
-    def on_L3_left(self, value):
-        if -3000 < value < 3000:
-            value = 0
+    def on_triangle_press(self):
         msg = MyString()
-        msg.data = f"L3_x: {value}"
+        msg.data = "triangle"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: L3_x: " + str(value))
-
-    def on_L3_right(self, value):
-        if -3000 < value < 3000:
-            value = 0
+        self.get_logger().info("Published: " + msg.data)
+    def on_triangle_release(self):
         msg = MyString()
-        msg.data = f"L3_x: {value}"
+        msg.data = "un_triangle"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: L3_x: " + str(value))
+        self.get_logger().info("Published: " + msg.data)
 
-    def on_L3_up(self, value):
-        if -3000 < value < 3000:
-            value = 0
+    def on_x_press(self):
         msg = MyString()
-        msg.data = f"L3_y: {value}"
+        msg.data = "x"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: L3_y: " + str(value))
-
-    def on_L3_down(self, value):
-        if -3000 < value < 3000:
-            value = 0
+        self.get_logger().info("Published: " + msg.data)
+    def on_x_release(self): 
         msg = MyString()
-        msg.data = f"L3_y: {value}"
+        msg.data = "un_x"
         self.publisher_.publish(msg)
-        self.get_logger().info("Published: L3_y: " + str(value))
+        self.get_logger().info("Published: " + msg.data)
 
 def main(args=None):
     rclpy.init(args=args)
     controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
     rclpy.spin(controller)  # コントローラーとROS2ノードを同時に実行
 
-    # コントローラが停止したら、ノードを破棄してROS通信をシャットダウンする
-    controller.destroy_node()
-    rclpy.shutdown()
 
 if __name__ == "__main__":
     main()
