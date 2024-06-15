@@ -2,6 +2,10 @@ import rclpy
 from hello_interfaces.msg import MyString
 from rclpy.node import Node
 from pyPS4Controller.controller import Controller
+import os
+import subprocess
+# os.environ['ROS_DOMAIN_ID'] = '2'
+
 
 class MyController(Controller, Node):
     def __init__(self, **kwargs):
@@ -13,7 +17,18 @@ class MyController(Controller, Node):
     def timer_callback(self):
         # コントローラーのイベントをリッスンするためのポーリング
         self.listen(timeout=5)
+        
+    # id wo kimeru
 
+    def on_share_press(self):
+        subprocess.run("export ROS_DOMAIN_ID=1 && ros2 run hello talker", shell=True)
+    
+    def on_options_press(self):
+        subprocess.run("export ROS_DOMAIN_ID=2 && ros2 run hello talker", shell=True)
+            
+    def on_playstation_button_press(self):
+        subprocess.run("export ROS_DOMAIN_ID=3 && ros2 run hello talker", shell=True)
+        
     # コントローラーのイベントハンドラー
     def on_x_press(self):
         msg = MyString()
