@@ -21,13 +21,13 @@ class MyController(Controller, Node):
     # id wo kimeru
 
     def on_share_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=1 && ros2 run ROB2", shell=True)
+        subprocess.run("export ROS_DOMAIN_ID=1 && ros2 run hello ROB2", shell=True)
     
     def on_options_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=2 && ros2 run ROB2", shell=True)
+        subprocess.run("export ROS_DOMAIN_ID=2 && ros2 run hello ROB2", shell=True)
             
     def on_playstation_button_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=3 && ros2 run ROB2", shell=True)
+        subprocess.run("export ROS_DOMAIN_ID=3 && ros2 run hello ROB2", shell=True)
         
     # コントローラーのイベントハンドラー
     def on_x_press(self):
@@ -42,27 +42,21 @@ class MyController(Controller, Node):
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_up_arrow_press(self):
+    def on_right_arrow_press(self):
         msg = MyString()
-        msg.data = "up"
+        msg.data = "right"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_up_arrow_release(self):
+    def on_left_right_arrow_release(self):
         msg = MyString()
-        msg.data = "un_up"
+        msg.data = "un_arrow"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
-    def on_down_arrow_press(self):
+    def on_left_arrow_press(self):
         msg = MyString()
-        msg.data = "down"
-        self.publisher_.publish(msg)
-        self.get_logger().info("Published: " + msg.data)
-
-    def on_down_arrow_release(self):
-        msg = MyString()
-        msg.data = "un_down"
+        msg.data = "left"
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
     
