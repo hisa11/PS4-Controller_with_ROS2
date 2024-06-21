@@ -4,6 +4,8 @@ from rclpy.node import Node
 from pyPS4Controller.controller import Controller
 import os
 import subprocess
+# os.environ['ROS_DOMAIN_ID'] = '2'
+
 
 class MyController(Controller, Node):
     def __init__(self, **kwargs):
@@ -17,60 +19,69 @@ class MyController(Controller, Node):
         self.listen(timeout=5)
         
     # id wo kimeru
+
     def on_share_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=1 && ros2 run hello talker", shell=True)
+        subprocess.run("export ROS_DOMAIN_ID=1 && ros2 run ROB2", shell=True)
     
     def on_options_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=2 && ros2 run hello talker", shell=True)
+        subprocess.run("export ROS_DOMAIN_ID=2 && ros2 run ROB2", shell=True)
             
     def on_playstation_button_press(self):
-        subprocess.run("export ROS_DOMAIN_ID=3 && ros2 run hello talker", shell=True)
+        subprocess.run("export ROS_DOMAIN_ID=3 && ros2 run ROB2", shell=True)
         
     # コントローラーのイベントハンドラー
+    def on_x_press(self):
+        msg = MyString()
+        msg.data = "x_send"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
+
+    def on_x_release(self):
+        msg = MyString()
+        msg.data = "un_x"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
+
     def on_up_arrow_press(self):
         msg = MyString()
         msg.data = "up"
         self.publisher_.publish(msg)
-        self.get_logger().info("up_on: " + msg.data)
+        self.get_logger().info("Published: " + msg.data)
+
     def on_up_arrow_release(self):
         msg = MyString()
         msg.data = "un_up"
         self.publisher_.publish(msg)
-        self.get_logger().info("up_off: " + msg.data)
+        self.get_logger().info("Published: " + msg.data)
 
-    # 他のイベントメソッドも同様に含めて修正
     def on_down_arrow_press(self):
         msg = MyString()
         msg.data = "down"
         self.publisher_.publish(msg)
-        self.get_logger().info("down_on: " + msg.data)
+        self.get_logger().info("Published: " + msg.data)
+
     def on_down_arrow_release(self):
         msg = MyString()
         msg.data = "un_down"
         self.publisher_.publish(msg)
-        self.get_logger().info("down_off: " + msg.data)
+        self.get_logger().info("Published: " + msg.data)
     
     def on_triangle_press(self):
         msg = MyString()
         msg.data = "triangle"
         self.publisher_.publish(msg)
-        self.get_logger().info("triangle_on: " + msg.data)
+        self.get_logger().info("Published: " + msg.data)
+
     def on_triangle_release(self):
         msg = MyString()
         msg.data = "un_triangle"
         self.publisher_.publish(msg)
-        self.get_logger().info("triangle_off: " + msg.data)
+        self.get_logger().info("Published: " + msg.data)
 
-    def on_x_press(self):
-        msg = MyString()
-        msg.data = "x"
-        self.publisher_.publish(msg)
-        self.get_logger().info("x_on: " + msg.data)
-    def on_x_release(self):
-        msg = MyString()
-        msg.data = "un_x"
-        self.publisher_.publish(msg)
-        self.get_logger().info("x_off: " + msg.data)
+    # ... 他のイベントメソッドも同様に含めて修正 ...
+
+    
+    # ____________________________________________
 
 def main(args=None):
     rclpy.init(args=args)
