@@ -12,5 +12,12 @@ git を入れる
   
 5.`colcon build`
 
+各ライブラリを入れる
+`pip install pyserial`(pythonが必要です)
+
+`ls -l /dev/ttyACM0`
+
+
+
 # 注意
 home以外に作ると別の操作が必要な場合があります
