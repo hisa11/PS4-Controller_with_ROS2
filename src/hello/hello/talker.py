@@ -41,6 +41,28 @@ class MyController(Controller, Node):
         self.publisher_.publish(msg)
         self.get_logger().info("Published: " + msg.data)
 
+    def on_L1_press(self):
+        msg = MyString()
+        msg.data = "L1ON"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
+    def on_L1_release(self):
+        msg = MyString()
+        msg.data = "L1OFF"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
+
+    def on_R1_press(self):
+        msg = MyString()
+        msg.data = "R1ON"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
+    def on_R1_release(self):
+        msg = MyString()
+        msg.data = "R1OFF"
+        self.publisher_.publish(msg)
+        self.get_logger().info("Published: " + msg.data)
+
     # ... 他のイベントメソッドも同様に含めて修正 ...
 
     def on_R3_left(self, value):
